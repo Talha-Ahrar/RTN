@@ -109,10 +109,10 @@ button:disabled {
     <label for="father_name">ولدیت:</label>
     <input type="text" id="father_name" name="father_name" required>
 <label for="id_card">شناختی کارڈ نمبر / بے فارم نمبر:</label>
-<input type="text" id="id_card" name="id_card" required pattern="[0-9]{13}" title="13 ہندسوں کا شناختی کارڈ نمبر درج کریں۔" maxlength="13">
+<input type="text" id="id_card" name="id_card" required pattern="[0-9]{13}" title="13 ہندسوں کا شناختی کارڈ نمبر درج کریں۔" maxlength="13" maxlength="11">
 
 <label for="mobile">موبائل نمبر:</label>
-<input type="text" id="mobile" name="mobile" required pattern="03[0-9]{9}" title="موبائل نمبر مانگا گیا ہے۔ براہ کرم درست فارمیٹ میں درج کریں۔" value="" min="0" max="99999999999" step="1" oninput="limitMobileLength(event)">
+<input type="text" id="mobile" name="mobile" required pattern="[0-9]{11}" title="موبائل نمبر مانگا گیا ہے۔ براہ کرم درست فارمیٹ میں درج کریں۔"  maxlength="11" maxlength="11">
 
     <label for="education">تعلیم:</label>
     <input type="text" id="education" name="education" required>
