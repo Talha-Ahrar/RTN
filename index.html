@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urdu Form</title>
+<style>
+/* Global styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+/* Container styles */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  direction: rtl; /* Right-to-left */
+}
+
+h2 {
+  margin-top: 0;
+  text-align: center;
+  color: #333;
+}
+
+/* Form styles */
+form {
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Background animation */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #4CAF50, #45a049);
+  z-index: -1;
+  animation: slide 15s linear infinite;
+}
+
+@keyframes slide {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="background"></div>
+<br>
+<div class="container">
+  <h2>رجسٹریشن فارم</h2>
+  <form id="urduForm">
+    <label for="course">علوم قرآنیہ کورس:</label>
+    <select id="course" name="course" required>
+      <option value="علومِ قرآنیہ کورس 1">علومِ قرآنیہ کورس 1</option>
+      <option value="علومِ قرآنیہ کورس 2">علومِ قرآنیہ کورس 2</option>
+      <option value="علومِ قرآنیہ کورس 3">علومِ قرآنیہ کورس 3</option>
+    </select>
+
+    <label for="name">نام:</label>
+    <input type="text" id="name" name="name" required pattern="[آ-ی\s]+" title="فقط اردو حروف مانگے جاتے ہیں">
+
+    <label for="father_name">ولدیت:</label>
+    <input type="text" id="father_name" name="father_name" required>
+<label for="id_card">شناختی کارڈ نمبر / بے فارم نمبر:</label>
+<input type="text" id="id_card" name="id_card" required pattern="[0-9]{13}" title="13 ہندسوں کا شناختی کارڈ نمبر درج کریں۔" maxlength="13">
+
+<label for="mobile">موبائل نمبر:</label>
+<input type="text" id="mobile" name="mobile" required pattern="03[0-9]{9}" title="موبائل نمبر مانگا گیا ہے۔ براہ کرم درست فارمیٹ میں درج کریں۔" value="" min="0" max="99999999999" step="1" oninput="limitMobileLength(event)">
+
+    <label for="education">تعلیم:</label>
+    <input type="text" id="education" name="education" required>
+
+    <label for="profession">پیشہ:</label>
+    <input type="text" id="profession" name="profession" required pattern="[آ-ی\s]+" title="فقط اردو حروف مانگے جاتے ہیں">
+
+    <label for="dob">تاریخ پیدائش:</label>
+    <input type="date" id="dob" name="dob" required>
+
+    <label for="temp_address">عارضی پتہ:</label>
+    <input type="text" id="temp_address" name="temp_address" required pattern="[آ-ی\s]+" title="فقط اردو حروف مانگے جاتے ہیں">
+
+    <label for="temp_city">شہر:</label>
+    <input type="text" id="temp_city" name="temp_city" required pattern="[آ-ی\s]+" title="فقط اردو حروف مانگے جاتے ہیں">
+
+    <label for="temp_district">ضلع:</label>
+    <input type="text" id="temp_district" name="temp_district" required pattern="[آ-ی\s]+" title="فقط اردو حروف مانگے جاتے ہیں">
+
+    <label for="temp_province">صوبہ:</label>
+    <input type="text" id="temp_province" name="temp_province" required pattern="[آ-ی\s]+" title="فقط اردو حروف مانگے جاتے ہیں">
+
+    <label for="permanent_address">مستقل پتہ:</label>
+    <input type="text" id="permanent_address" name="permanent_address" required pattern="[آ-ی\s]+" title="فقط اردو حروف مانگے جاتے ہیں">
+
+    <label for="permanent_city">شہر:</label>
+    <input type="text" id="permanent_city" name="permanent_city" required pattern="[آ-ی\s]+" title="فقط اردو حروف مانگے جاتے ہیں">
+
+    <label for="permanent_district">ضلع:</label>
+    <input type="text" id="permanent_district" name="permanent_district" required pattern="[آ-ی\s]+" title="فقط اردو حروف مانگے جاتے ہیں">
+
+    <label for="permanent_province">صوبہ:</label>
+    <input type="text" id="permanent_province" name="permanent_province" required pattern="[آ-ی\s]+" title="فقط اردو حروف مانگے جاتے ہیں">
+
+    <label for="circle">حلقہ:</label>
+    <input type="text" id="circle" name="circle" required pattern="[آ-ی\s]+" title="فقط اردو حروف مانگے جاتے ہیں">
+
+    <label for="zone">زون:</label>
+    <input type="text" id="zone" name="zone" required pattern="[آ-ی\s]+" title="فقط اردو حروف مانگے جاتے ہیں">
+
+    <label for="division">ڈویژن:</label>
+    <input type="text" id="division" name="division" required pattern="[آ-ی\s]+" title="فقط اردو حروف مانگے جاتے ہیں">
+
+    <label for="region">ریجن:</label>
+    <input type="text" id="region" name="region" required pattern="[آ-ی\s]+" title="فقط اردو حروف مانگے جاتے ہیں">
+
+    <label for="image">تصویر:</label>
+    <input type="file" id="image" name="image" accept="image/*" required>
+
+    <label for="id_upload">شناختی کارڈ / بےفارم:</label>
+    <input type="file" id="id_upload" name="id_upload" accept=".jpg, .jpeg, .png, .pdf" required>
+
+    <label for="registration_fee_receipt">رجسٹریشن فیس کی رسید:</label>
+    <input type="file" id="registration_fee_receipt" name="registration_fee_receipt" accept=".jpg, .jpeg, .png, .pdf" required>
+
+   <button id="submitBtn" type="submit">فارم جمع کریں</button>
+  </form>
+</div>
+
+<script>
+
+
+
+To achieve the desired behavior where "03" is displayed by default and cannot be removed, and users can only input 9 additional digits, you can use JavaScript to enforce these constraints. Here's how you can modify the input field and add JavaScript to achieve this:
+
+html
+Copy code
+<label for="mobile">موبائل نمبر:</label>
+<input type="text" id="mobile" name="mobile" required pattern="03[0-9]{9}" title="موبائل نمبر مانگا گیا ہے۔ براہ کرم درست فارمیٹ میں درج کریں۔" value="03" maxlength="11" oninput="limitMobileLength(event)">
+And add the following JavaScript:
+
+javascript
+Copy code
+function limitMobileLength(event) {
+    var input = event.target;
+    // Ensure "03" is always present
+    if (input.value.length < 2 || input.value.substring(0, 2) !== "03") {
+        input.value = "03";
+    }
+    // Limit length to 11 characters (including "03")
+    if (input.value.length > 11) {
+        input.value = input.value.substring(0, 11);
+    }
+}
+// Function to check internet connectivity
+function checkInternetConnection() {
+  return new Promise(function(resolve, reject) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          resolve(true);
+        } else {
+          resolve(false);
+        }
+      }
+    };
+    xhr.onerror = function() {
+      resolve(false);
+    };
+    xhr.open('GET', 'https://www.google.com', true);
+    xhr.send();
+  });
+}
+
+// Check internet connectivity before loading the form
+checkInternetConnection().then(function(isConnected) {
+  if (isConnected) {
+    document.getElementById("formContainer").innerHTML = `
+      <form id="urduForm">
+        <!-- Form fields go here -->
+        <button id="submitBtn" type="submit">فارم جمع کریں</button>
+      </form>
+    `;
+    
+    // Add event listener to the form
+    document.getElementById("urduForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      var formData = new FormData(this);
+      var submitBtn = document.getElementById("submitBtn");
+      submitBtn.disabled = true; // Disable the button
+      
+      fetch('https://script.google.com/macros/s/AKfycbz0gfUwYpvZJ0Txg6Q9kHwJe3zDUT2CYSeLLdQ5AuMavvM5-DhHXvVbFCaag8gRIy5F/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      })
+      .then(response => {
+        alert("آپ کا ڈیٹا سرور پر محفوظ ہو گیا ہے!");
+        document.getElementById("urduForm").reset();
+        submitBtn.disabled = false; // Re-enable the button after response is received
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        submitBtn.disabled = false; // Re-enable the button in case of error
+      });
+    });
+  } else {
+    document.getElementById("formContainer").innerHTML = '<p>انٹرنیٹ کنیکشن دستیاب نہیں ہے۔</p>';
+  }
+});
+
+
+
+</script>
+ 
+</body>
+</html>
+ 
+</body>
+</html>
