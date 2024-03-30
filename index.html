@@ -174,18 +174,10 @@ button:disabled {
 
 <script>
 
-
-
-To achieve the desired behavior where "03" is displayed by default and cannot be removed, and users can only input 9 additional digits, you can use JavaScript to enforce these constraints. Here's how you can modify the input field and add JavaScript to achieve this:
-
-html
-Copy code
 <label for="mobile">موبائل نمبر:</label>
 <input type="text" id="mobile" name="mobile" required pattern="03[0-9]{9}" title="موبائل نمبر مانگا گیا ہے۔ براہ کرم درست فارمیٹ میں درج کریں۔" value="03" maxlength="11" oninput="limitMobileLength(event)">
-And add the following JavaScript:
 
-javascript
-Copy code
+
 function limitMobileLength(event) {
     var input = event.target;
     // Ensure "03" is always present
@@ -235,7 +227,7 @@ checkInternetConnection().then(function(isConnected) {
       var submitBtn = document.getElementById("submitBtn");
       submitBtn.disabled = true; // Disable the button
       
-      fetch('https://script.google.com/macros/s/AKfycbz0gfUwYpvZJ0Txg6Q9kHwJe3zDUT2CYSeLLdQ5AuMavvM5-DhHXvVbFCaag8gRIy5F/exec', {
+      fetch('https://script.google.com/macros/s/AKfycbylysZ5BGhkwXtT_1dE1Aubmfz9KXCOdeJSdZorhMuJpV7dRQouDX-3_s5z06b0nUrE/exec', {
         method: 'POST',
         mode: 'no-cors',
         body: formData
